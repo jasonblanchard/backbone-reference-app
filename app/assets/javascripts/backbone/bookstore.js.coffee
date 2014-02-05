@@ -9,3 +9,14 @@ window.Bookstore =
   Collections: {}
   Routers: {}
   Views: {}
+
+  initialize: ->
+    @books= new Bookstore.Collections.BooksCollection
+    @books.fetch()
+    @booksView = new Bookstore.Views.Books({collection: @books})
+    @booksView.render()
+    $('#app').append(@booksView.el);
+
+
+$(document).ready ->
+  Bookstore.initialize()
