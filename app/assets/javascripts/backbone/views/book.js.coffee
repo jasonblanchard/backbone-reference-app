@@ -11,6 +11,14 @@ class Bookstore.Views.Book extends Backbone.View
     this.$el.html(this.template({model: this.model}))
     return this
 
+  events: {
+    'click button.delete-book': 'destroy'
+  }
+
+  destroy: (e) ->
+    e.preventDefault()
+    this.model.destroy()
+
 
 class Bookstore.Views.Books extends Backbone.View
   className: 'books'
