@@ -15,7 +15,10 @@ window.Bookstore =
     @books.fetch()
     @booksView = new Bookstore.Views.Books({collection: @books})
     @booksView.render()
+    @bookForm = new Bookstore.Views.BookForm({model: new Bookstore.Models.Book, collection: @books})
+    @bookForm.render()
     $('#app').append(@booksView.el);
+    $('#app').prepend(@bookForm.el);
 
 
 $(document).ready ->
