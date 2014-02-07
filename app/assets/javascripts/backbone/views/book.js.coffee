@@ -34,7 +34,7 @@ class Bookstore.Views.Books extends Backbone.View
     return @
   
   addAll: ->
-    @.$el.html = ''
+    @.$el.empty()
     @.collection.forEach(@.addOne, this)
 
   addOne: (model) ->
