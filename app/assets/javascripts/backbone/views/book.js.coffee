@@ -13,11 +13,18 @@ class Bookstore.Views.Book extends Backbone.View
 
   events: {
     'click button.delete-book': 'destroy'
+    'click button.edit-book': 'edit'
   }
 
   destroy: (e) ->
     e.preventDefault()
     this.model.destroy()
+
+  edit: (e) ->
+    e.preventDefault()
+    form = new Bookstore.Views.BookForm({model: @.model})
+    form.render()
+    @.$el.html(form.el)
 
 
 class Bookstore.Views.Books extends Backbone.View
